@@ -6,7 +6,7 @@ const app=express();
 let port=8080;
 
 app.set("view engine","ejs");
-app.set("views", path.join(__dirname,"ejs"));
+app.set("views", path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 
 let post=[{username:"ashwith",
@@ -21,8 +21,8 @@ let post=[{username:"ashwith",
 ];
 
 app.get("/posts",(req,res)=>{
-    res.render("index.ejs");
-})
+    res.render("index.ejs",{post});
+});
 
 app.get("/",(req,res)=>{
     res.send("server is working");
