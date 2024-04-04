@@ -1,24 +1,32 @@
 const express=require("express")
+const path = require("path"); 
 
 const app=express();
 
 let port=8080;
 
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"ejs"));
-app.set(express.static(path.join(__dirname,"public")));
+app.set("views", path.join(__dirname,"ejs"));
+app.use(express.static(path.join(__dirname,"public")));
 
-let post=[{usernme:"ashwith",
+let post=[{username:"ashwith",
         content:"i am ashwith"  
         },
-        {usernme:"saitama",
+        {username:"saitama",
         content :"i am hero for fun"  
         },
-        {usernme:"anya",
+        {username:"anya",
         content:"i am anay"  
         },
 ];
 
+app.get("/posts",(req,res)=>{
+    res.render("index.ejs");
+})
+
+app.get("/",(req,res)=>{
+    res.send("server is working");
+})
 
 app.listen(port,()=>{
     console.log("app is listening");
