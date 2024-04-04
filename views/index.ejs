@@ -9,12 +9,13 @@
 
    <h1> this is quora page</h1>
 
-   <% for(posts in post){%>
+   <% for(let i=0; i<post.length; i++){ %>
     <div>
-        <h3>username:@<% username.post %></h3>
-        <h3>content:<% content.post %></h3>
+        <h3>username: @<%= post[i].username %></h3>
+        <h3>content: <%= post[i].content %></h3>
     </div>
+    <hr>
+   <% } %>
 
-   }
 </body>
 </html>
