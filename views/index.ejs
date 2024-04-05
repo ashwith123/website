@@ -9,12 +9,14 @@
 <body>
 
    <h1>Quora</h1>
+    <a href="http://localhost:8080/posts/new"><button>create new post</button></a>
 
    <% for(let i=0; i<posts.length; i++){ %>
     <div class="post">
         <h3 class="user">username: @<%= posts[i].username %></h3>
         <h3 class="cont">content: <%= posts[i].content %></h3>
     </div>
+
     <hr>
    <% } %>
 
