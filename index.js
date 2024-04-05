@@ -24,6 +24,10 @@ app.get("/posts",(req,res)=>{
     res.render("index.ejs",{post});
 });
 
+app.get("/posts/new",(req,res)=>{
+    res.render("new.ejs");
+});
+
 app.get("/",(req,res)=>{
     res.send("server is working");
 })
