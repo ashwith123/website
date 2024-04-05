@@ -24,7 +24,7 @@ let posts=[{username:"ashwith",
 ];
 
 app.get("/posts",(req,res)=>{
-    res.render("index.ejs",{post});
+    res.render("index.ejs",{posts});
 });
 
 /* rendering in new post */
@@ -32,8 +32,11 @@ app.get("/posts/new",(req,res)=>{
     res.render("new.ejs");
 });
 
+/* this is addding data to array */
+
 app.post("/posts",(req,res)=>{
-    console.log(req.body);
+    let {username,content}=req.body;
+    posts.push({username,content});
     res.send("post sucessfully made");
 })
 
